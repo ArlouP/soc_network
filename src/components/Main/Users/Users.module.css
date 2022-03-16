@@ -1,0 +1,14 @@
+
+.usersAvatar{
+	max-width:100px;
+}
+
+
+.pageNambers{
+	cursor: pointer;
+}
+.activePage{
+	font-weight: bold;
+
+}
+

@@ -1,0 +1,17 @@
+.nav {
+	grid-row: 2/3;
+	grid-column: 1/2;
+	background-color: #0026ff;
+ }
+ 
+ .nav li {
+	 list-style-type: none;
+ }
+ .item{
+	 text-decoration: none;
+	 color:black;
+ }
+ .active{
+	 color:gold;
+
+ }
