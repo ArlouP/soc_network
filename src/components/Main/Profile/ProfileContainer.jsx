@@ -56,7 +56,6 @@ const mapDispatchToProps = {
 const ProfileURLMatch = (props) => {
 
 	const match = useMatch('/profile/:userId/');
-	debugger
 	return <ProfileContainer {...props} match={match} />;
 
 }
