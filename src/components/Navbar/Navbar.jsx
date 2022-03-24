@@ -7,6 +7,7 @@ const Navbar = () => {
 	return (
 		<nav className={s.nav}>
 			<ul>
+				{/* /profile/	зачем тут слэш в конце? */}
 				<li><NavLink to="/profile/" className={link => link.isActive ? s.active : s.item}>Profile</NavLink></li>
 				<li><NavLink to="/dialogs/" className={link => link.isActive ? s.active : s.item}>Dialogs</NavLink></li>
 				<li><NavLink to="/users/" className={link => link.isActive ? s.active : s.item}>Users</NavLink></li>
