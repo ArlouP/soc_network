@@ -5,6 +5,7 @@ import React from 'react';
 import * as axios from 'axios';
 import Users from './Users';
 import Preloader from '../../../common/Preloader/Preloader';
+import { api } from '../../../api/api';
 
 class UsersApiComponent extends React.Component {
 
@@ -18,15 +19,13 @@ class UsersApiComponent extends React.Component {
 	// };
 
 	componentDidMount() {
-		console.log(this.props)
 		this.props.cnangeiIsFetching(true);
-		// настраиваем запрос на получение юзеров page это номер страницы, count колчиство вызываемых юзеров на странице
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=
-		${this.props.carrentPage}&count=${this.props.pageSize}`)
+
+		api.getUsers(this.props.carrentPage, this.props.pageSize)
 			.then(response => {
 				this.props.cnangeiIsFetching(false);
-				this.props.setUsers(response.data.items);
-				this.props.setTotalCount(response.data.totalCount);
+				this.props.setUsers(response.items);
+				this.props.setTotalCount(response.totalCount);
 				// console.log(response.data)
 			});
 	}
@@ -34,10 +33,10 @@ class UsersApiComponent extends React.Component {
 	changeCarrentPage = (page) => {
 		this.props.cnangeiIsFetching(true);
 		this.props.setCarrentPage(page);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
+		api.getUsers(page, this.props.pageSize)
 			.then(response => {
 				this.props.cnangeiIsFetching(false);
-				this.props.setUsers(response.data.items);
+				this.props.setUsers(response.items);
 			});
 	}
 

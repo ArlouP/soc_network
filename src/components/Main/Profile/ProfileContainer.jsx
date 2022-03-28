@@ -3,9 +3,8 @@ import React from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
 import { setСarrentProfile } from '../../../state/profileReduser';
-import Preloader from "../../../common/Preloader/Preloader";
+
 // import { useMatch } from "react-router-dom";
-import { BASE_URL } from "../../../common/BASE_URL/BASE_URL";
 import { useMatch } from "react-router-dom";
 
 
@@ -26,7 +25,7 @@ class ProfileContainer extends React.Component {
 			<Profile
 				// вот это пока не надо передавать {...this.props}
 				carrentProfile={this.props.carrentProfile}
-				/>
+			/>
 
 			// Может тут лучше сделать перлоадер?
 			// <>

@@ -1,6 +1,7 @@
 import s from './Users.module.css';
 import usersPhoto from '../../../images/users-avatar.jpg';
 import { NavLink } from 'react-router-dom';
+import { api } from '../../../api/api';
 
 
 
@@ -24,6 +25,7 @@ const Users = (props) => {
 						)
 					})}
 			</div>
+
 			<div>
 				{
 					props.users.map(user => {
@@ -36,9 +38,23 @@ const Users = (props) => {
 											<img className={s.usersAvatar} src={user.photos.large ? user.photos.large : usersPhoto} />
 										</NavLink>
 									</div>
-									<div>{user.followed
-										? <button onClick={() => { props.unfollow(user.id) }} >Follow</button>
-										: <button onClick={() => { props.follow(user.id) }}>Unfollow</button>}</div>
+									<div>
+										{
+											user.followed
+												? <button onClick={
+													() => {
+														
+														api.unfollow(user.id).then(response => { if (response.resultCode === 0) props.unfollow(user.id) })
+														
+													}
+												} >Unfollow</button>
+												: <button onClick={
+													() => {
+														api.follow(user.id).then(response => { if (response.resultCode === 0) props.follow(user.id) })
+													}
+												}>Follow</button>
+										}
+									</div>
 								</div>
 								<div>
 									<p>Name:{user.name}</p>
@@ -49,9 +65,12 @@ const Users = (props) => {
 					})
 				}
 			</div>
-		</div>
+		</div >
 	)
 };
 
 
 export default Users;
+
+
+

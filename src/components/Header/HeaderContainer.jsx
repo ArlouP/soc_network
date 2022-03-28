@@ -6,7 +6,6 @@ import { setCurrentUser } from "../../state/authReduser";
 
 
 
-// измени на аутх ркедьюсер
 class HeaderContainer extends React.Component {
 
 	componentDidMount() {
@@ -17,7 +16,6 @@ class HeaderContainer extends React.Component {
 				if (response.data.resultCode===0) this.props.setCurrentUser(id, email, login);
 			});
 	}
-	// вот тут надо посмотреть как деструктуризация расворачивает пропсы
 	render() {
 		return (
 			<Header logIn={this.props.logIn} isEnter={this.props.isEnter} />

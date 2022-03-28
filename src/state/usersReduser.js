@@ -5,14 +5,14 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 const SET_CARRENT_PAGE = 'SET_CARRENT_PAGE';
-const IS_FETCING='IS_FETCING';
+const IS_FETCING = 'IS_FETCING';
 
 let initialState = {
 	users: [],
 	totalCount: '',
 	pageSize: 100,
 	carrentPage: 1,
-	isFetching:false,
+	isFetching: false,
 
 };
 
@@ -55,12 +55,12 @@ const usersReduser = (state = initialState, action) => {
 			return {
 				...state,
 				carrentPage: action.carrentPage,
-			}	
-			case IS_FETCING:
-				return{
-					...state,
-					isFetching:action.isFetching,
-				}
+			}
+		case IS_FETCING:
+			return {
+				...state,
+				isFetching: action.isFetching,
+			}
 		default:
 			return state;
 	};
